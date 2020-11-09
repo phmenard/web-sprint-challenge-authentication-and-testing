@@ -8,6 +8,12 @@ function findById(id) {
 	return db("users").where({ id }).first()
 }
 
+function findByUsername(username) {
+	return db("users as u")
+		.where("u.username", username)
+		.first("u.id", "u.username", "u.password")
+}
+
 async function create(data) {
 	const [id] = await db("users").insert(data)
 	return findById(id)
@@ -24,7 +30,8 @@ function remove(id) {
 
 module.exports = {
 	find,
-	findById,
+    findById,
+    findByUsername,
 	create,
 	update,
 	remove,
