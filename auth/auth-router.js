@@ -29,6 +29,7 @@ router.post('/register',  async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
   // implement login
+  //console.log(req.body)
   try {
     const {username, password} = req.body
     const user = await Users.findByUsername(username)
@@ -55,13 +56,9 @@ router.post('/login', async (req, res, next) => {
 
     res.cookie("token", token)
 
-    res.json({
-      message: `Welcome ${user.username}`,
+    res.status(200).json({
+      message: `Welcome ${user.username}`
     })
-
-
-
-
   } catch (error) {
     next(error)
   }
