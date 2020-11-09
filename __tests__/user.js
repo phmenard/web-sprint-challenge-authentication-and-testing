@@ -33,4 +33,15 @@ describe("users intergration", () => {
         expect(res.body.message).toBe("Welcome steve")
           
     })
+
+    /*it("can get a list of jokes if logged in", async () => {
+        const res = await supertest(server)
+            .get("/api/jokes")
+
+        expect(res.statusCode).toBe(200)
+        expect(res.type).toBe("application/json")
+        expect(res.body.length).toBeGreaterThanOrEqual(4)
+        expect(res.body[0].id).toBe("0189hNRf2g")
+    })*/
+        
 })
