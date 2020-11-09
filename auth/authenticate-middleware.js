@@ -12,7 +12,7 @@ function restrict() {
 			const token = req.cookies.token
 			if (!token) {
 				return res.status(401).json({
-					message: "Invalid credentials",
+					message: "no token detected",
 				})
       }
 
